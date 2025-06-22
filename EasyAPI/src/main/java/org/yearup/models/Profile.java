@@ -32,8 +32,15 @@ public class Profile
         this.zip = zip;
     }
     public Profile(ResultSet row) throws SQLException{
-    //TODO
-
+        this.userId = row.getInt("user_id");
+        this.firstName = row.getString("first_name");
+        this.lastName = row.getString("last_name");
+        this.phone = row.getString("phone");
+        this.email = row.getString("email");
+        this.address = row.getString("address");
+        this.city = row.getString("city");
+        this.state = row.getString("state");
+        this.zip = row.getString("zip");
     }
     public int getUserId()
     {
