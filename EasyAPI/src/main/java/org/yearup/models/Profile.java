@@ -1,5 +1,8 @@
 package org.yearup.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Profile
 {
     private int userId;
@@ -28,7 +31,10 @@ public class Profile
         this.state = state;
         this.zip = zip;
     }
+    public Profile(ResultSet row) throws SQLException{
+    //TODO
 
+    }
     public int getUserId()
     {
         return userId;
