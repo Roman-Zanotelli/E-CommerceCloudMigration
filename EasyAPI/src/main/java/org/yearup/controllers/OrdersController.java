@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.yearup.data.OrderDao;
+import org.yearup.data.ProfileDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
 import org.yearup.models.Order;
@@ -20,10 +21,13 @@ import java.security.Principal;
 public class OrdersController {
     @Autowired
     private OrderDao orderDao;
+    @Autowired
     private UserDao userDao;
+    @Autowired
+    private ProfileDao profileDao;
 
     @PostMapping
     public Order checkOut(Principal principal){
-        return orderDao.checkOut(userDao.getIdByUsername(principal.getName()));
+        return orderDao.checkOut(profileDao.getByUserId(userDao.getIdByUsername(principal.getName())));
     }
 }

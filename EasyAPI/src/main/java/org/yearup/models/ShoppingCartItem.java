@@ -17,6 +17,7 @@ public class ShoppingCartItem
         this.quantity = row.getInt("quantity");
     }
 
+
     public Product getProduct()
     {
         return product;
@@ -62,5 +63,9 @@ public class ShoppingCartItem
         BigDecimal discountAmount = subTotal.multiply(discountPercent);
 
         return subTotal.subtract(discountAmount);
+    }
+
+    public OrderLineItem convertToLineItem(int orderId){
+        return new OrderLineItem(orderId, this.product.getProductId(), this.product.getPrice(), this.discountPercent, this.quantity);
     }
 }

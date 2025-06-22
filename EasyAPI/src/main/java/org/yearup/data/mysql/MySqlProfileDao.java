@@ -1,11 +1,9 @@
 package org.yearup.data.mysql;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.yearup.models.Profile;
 import org.yearup.data.ProfileDao;
 
-import javax.sql.DataSource;
 import java.sql.*;
 
 @Component
