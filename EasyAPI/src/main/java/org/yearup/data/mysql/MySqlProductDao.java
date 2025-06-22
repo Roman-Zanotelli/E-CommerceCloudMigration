@@ -24,24 +24,39 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         List<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM products " +
+                //Category ID
                 "WHERE (category_id = ? OR ? = -1) " +
+                //Min Price Bound
+                "   AND (price >= ? OR ? = -1) " +
+                //Max Price Bound
                 "   AND (price <= ? OR ? = -1) " +
+                //Color
                 "   AND (color = ? OR ? = '') ";
 
-        categoryId = categoryId == null ? -1 : categoryId;
-        minPrice = minPrice == null ? new BigDecimal("-1") : minPrice;
-        maxPrice = maxPrice == null ? new BigDecimal("-1") : maxPrice;
-        color = color == null ? "" : color;
+        //Defaulting null values
+        categoryId = (categoryId == null ? -1 : categoryId);
+        minPrice = (minPrice == null ? new BigDecimal("-1") : minPrice);
+        maxPrice = (maxPrice == null ? new BigDecimal("-1") : maxPrice);
+        color = (color == null ? "" : color);
 
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
+            //category_id
             statement.setInt(1, categoryId);
             statement.setInt(2, categoryId);
+
+            //min price bound
             statement.setBigDecimal(3, minPrice);
             statement.setBigDecimal(4, minPrice);
-            statement.setString(5, color);
-            statement.setString(6, color);
+
+            //max price bound
+            statement.setBigDecimal(5, maxPrice);
+            statement.setBigDecimal(6, maxPrice);
+
+            //color
+            statement.setString(7, color);
+            statement.setString(8, color);
 
             ResultSet row = statement.executeQuery();
 

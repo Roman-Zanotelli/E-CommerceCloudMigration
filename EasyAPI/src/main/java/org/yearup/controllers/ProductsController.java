@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("products")
 @CrossOrigin
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class ProductsController
 {
     private ProductDao productDao;
@@ -81,7 +82,7 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
+            productDao.update(id, product);
         }
         catch(Exception ex)
         {
