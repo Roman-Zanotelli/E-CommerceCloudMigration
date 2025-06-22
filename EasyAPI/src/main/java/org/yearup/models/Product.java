@@ -1,6 +1,8 @@
 package org.yearup.models;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Product
 {
@@ -29,6 +31,17 @@ public class Product
         this.stock = stock;
         this.isFeatured = isFeatured;
         this.imageUrl = imageUrl;
+    }
+    public Product(ResultSet row) throws SQLException{
+        this.productId = row.getInt("product_id");
+        this.name = row.getString("name");
+        this.price = row.getBigDecimal("price");
+        this.categoryId = row.getInt("category_id");
+        this.description = row.getString("description");
+        this.color = row.getString("color");
+        this.stock = row.getInt("stock");
+        this.isFeatured = row.getBoolean("featured");
+        this.imageUrl = row.getString("image_url");
     }
 
     public int getProductId()

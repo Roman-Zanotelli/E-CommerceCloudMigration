@@ -17,13 +17,8 @@ import java.util.List;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class ProductsController
 {
-    private ProductDao productDao;
-
     @Autowired
-    public ProductsController(ProductDao productDao)
-    {
-        this.productDao = productDao;
-    }
+    private ProductDao productDao;
 
     @GetMapping("")
     @PreAuthorize("permitAll()")

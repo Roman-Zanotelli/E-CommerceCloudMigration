@@ -3,6 +3,8 @@ package org.yearup.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ShoppingCartItem
 {
@@ -10,6 +12,10 @@ public class ShoppingCartItem
     private int quantity = 1;
     private BigDecimal discountPercent = BigDecimal.ZERO;
 
+    public ShoppingCartItem(ResultSet row) throws SQLException {
+        this.product = new Product(row);
+        this.quantity = row.getInt("quantity");
+    }
 
     public Product getProduct()
     {
