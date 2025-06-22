@@ -8,13 +8,8 @@ import java.sql.SQLException;
 
 public abstract class MySqlDaoBase
 {
-    private DataSource dataSource;
-
     @Autowired
-    public MySqlDaoBase(DataSource dataSource)
-    {
-        this.dataSource = dataSource;
-    }
+    private DataSource dataSource;
 
     protected Connection getConnection() throws SQLException
     {

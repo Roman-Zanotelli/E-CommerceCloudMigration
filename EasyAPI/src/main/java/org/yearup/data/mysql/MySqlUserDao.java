@@ -15,12 +15,6 @@ import java.util.List;
 public class MySqlUserDao extends MySqlDaoBase implements UserDao
 {
 
-    public MySqlUserDao(DataSource dataSource)
-    {
-        super(dataSource);
-    }
-
-
     @Override
     public User create(User newUser)
     {

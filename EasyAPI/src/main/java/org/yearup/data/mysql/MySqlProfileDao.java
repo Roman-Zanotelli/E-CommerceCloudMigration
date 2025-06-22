@@ -12,11 +12,6 @@ import java.sql.*;
 public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 {
 
-    public MySqlProfileDao(DataSource dataSource)
-    {
-        super(dataSource);
-    }
-
     @Override
     public Profile create(Profile profile)
     {
@@ -47,13 +42,13 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
     }
 
     @Override
-    public Profile getByUserName(String name) {
-        String sql = "SELECT * FROM profiles WHERE user_id = (SELECT user_id FROM users WHERE username = ?);";
+    public Profile getByUserId(int id) {
+        String sql = "SELECT * FROM profiles WHERE user_id = ?;";
 
         try(Connection connection = getConnection())
         {
             PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(1, name);
+            ps.setInt(1, id);
             ResultSet result = ps.executeQuery();
             if(result.next()) return new Profile(result);
         }
@@ -65,7 +60,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
     }
 
     @Override
-    public Profile update(String name, Profile profile) {
+    public Profile update(int id, Profile profile) {
         String sql = """
                 UPDATE `profiles`
                 SET
@@ -91,9 +86,9 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
             ps.setString(6, profile.getCity());
             ps.setString(7, profile.getState());
             ps.setString(8, profile.getZip());
-            ps.setInt(9, profile.getUserId());
+            ps.setInt(9, id);
             if(ps.executeUpdate() != 0) return profile;
-            return getByUserName(name);
+            return getByUserId(id);
         }
         catch (SQLException e)
         {

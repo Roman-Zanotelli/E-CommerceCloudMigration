@@ -18,10 +18,6 @@ import java.util.List;
 @Component
 public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDao {
 
-    public MySqlShoppingCartDao(DataSource dataSource) {
-        super(dataSource);
-    }
-
     @Override
     public ShoppingCart getByUserId(int userId) {
         ShoppingCart cart = new ShoppingCart();

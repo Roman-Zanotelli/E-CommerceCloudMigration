@@ -15,11 +15,6 @@ import java.util.List;
 public class MySqlProductDao extends MySqlDaoBase implements ProductDao
 {
 
-    public MySqlProductDao(DataSource dataSource)
-    {
-        super(dataSource);
-    }
-
     @Override
     public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)
     {
