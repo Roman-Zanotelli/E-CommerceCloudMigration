@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d3bc0642-a1e5-4a83-8c25-2a2afc8999f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/create_database.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/EasyshopApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/configurations/DatabaseConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/controllers/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/controllers/CategoriesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/controllers/ProductsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/controllers/ShoppingCartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/CategoryDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/ProductDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/ProfileDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/ShoppingCartDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/mysql/MySqlCategoryDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/mysql/MySqlDaoBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/mysql/MySqlProductDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/mysql/MySqlProfileDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/data/mysql/MySqlUserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/Profile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/ShoppingCart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/ShoppingCartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/authentication/Authority.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/authentication/LoginDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/authentication/LoginResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/models/authentication/RegisterUserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/JwtAccessDeniedHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/SecurityUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/UserModelDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/UserNotActivatedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/jwt/JWTConfigurer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/jwt/JWTFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yearup/security/jwt/TokenProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/yearup/configuration/TestDatabaseConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/yearup/data/mysql/BaseDaoTestClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/yearup/data/mysql/MySqlProductDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test-data.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2QrXqeMp2SKSQYt6gxuJDgG0jrL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/roman/pluralsight/LearnToCode_Capstones/E-CommerceCloudMigration/EasyAPI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "a38cba75193fed2e4b6b3d0c64b846a0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "MySQL"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\azure-repos\Courseware\Pluralsight\YearUpAcademy\Java\Week 12 - Final Capstone\Solution\capstone\src\test\resources" />
+      <recent name="D:\Code\azure-repos\Courseware\Pluralsight\YearUpAcademy\Java\Week 12 - Final Capstone\Solution\capstone\src\main\java\org\yearup\services\mysql" />
+      <recent name="D:\Code\azure-repos\Courseware\Pluralsight\YearUpAcademy\Java\Week 12 - Final Capstone\Solution\capstone\src\main\java\org\yearup\services" />
+      <recent name="D:\Code\azure-repos\Courseware\Pluralsight\YearUpAcademy\Java\Week 12 - Final Capstone\Solution\capstone\src\main\java\org\yearup\models" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.yearup.data.mysql" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MySqlProductDaoTest">
+    <configuration name="MySqlProductDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="easyshop-capstone-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yearup.configuration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.yearup.data.mysql" />
+      <option name="MAIN_CLASS_NAME" value="org.yearup.data.mysql.MySqlProductDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySqlProductDaoTest.getById_shouldReturn_theCorrectProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="easyshop-capstone-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yearup.configuration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.yearup.data.mysql" />
+      <option name="MAIN_CLASS_NAME" value="org.yearup.data.mysql.MySqlProductDaoTest" />
+      <option name="METHOD_NAME" value="getById_shouldReturn_theCorrectProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EasyshopApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="capstone-starter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.yearup.EasyshopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EasyshopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="easyshop-capstone-starter" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.yearup.EasyshopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MySqlProductDaoTest.getById_shouldReturn_theCorrectProduct" />
+        <item itemvalue="JUnit.MySqlProductDaoTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3bc0642-a1e5-4a83-8c25-2a2afc8999f5" name="Changes" comment="" />
+      <created>1686112866840</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686112866840</updated>
+      <workItem from="1686112868248" duration="28071000" />
+      <workItem from="1686621938273" duration="14712000" />
+      <workItem from="1686723299120" duration="10080000" />
+      <workItem from="1686800594896" duration="4956000" />
+      <workItem from="1686864948655" duration="5435000" />
+      <workItem from="1687333030732" duration="3113000" />
+      <workItem from="1687460365916" duration="7126000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
