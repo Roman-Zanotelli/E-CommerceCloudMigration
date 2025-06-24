@@ -31,7 +31,7 @@ public class ProfileController {
         }
     }
 
-    @PostMapping
+    @PutMapping
     public Profile updateProfile(Principal principal, @RequestBody Profile profile){
         try {
             return profileDao.update(userDao.getIdByUsername(principal.getName()), profile);

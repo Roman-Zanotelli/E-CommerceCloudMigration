@@ -36,7 +36,9 @@ public class OrdersController {
     public Order checkOut(Principal principal) {
         try {
             int userId = userDao.getIdByUsername(principal.getName());
-            return orderDao.checkOut(profileDao.getByUserId(userId), cartDao.getByUserId(userId));
+            Order order = orderDao.checkOut(profileDao.getByUserId(userId), cartDao.getByUserId(userId));
+            cartDao.deleteCart(userId);
+            return order;
         }catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");

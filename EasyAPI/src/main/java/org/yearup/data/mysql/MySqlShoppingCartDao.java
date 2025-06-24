@@ -55,7 +55,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     @Override
     public ShoppingCart createCart(int userId, int productId) {
         //Query String
-        String sql = "INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES(?, ?, 1) ON CONFLICT (user_id, product_id) DO UPDATE SET quantity = shopping_cart.quantity + 1;";
+        String sql = "INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES(?, ?, 1) ON DUPLICATE KEY UPDATE quantity = quantity + 1;";
 
         //Try Connection
         try (Connection connection = getConnection())
@@ -108,7 +108,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public boolean deleteCart(int userId) {
+    public ShoppingCart deleteCart(int userId) {
         //Query String
         String sql = "DELETE FROM shopping_cart WHERE user_id = ?;";
 
@@ -120,9 +120,9 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
             //Fill Value
             statement.setInt(1, userId);
-
+            statement.executeUpdate();
             //Return if anything changed
-            return statement.executeUpdate() != 0;
+            return  getByUserId(userId);
         }
         catch (SQLException e)
         {

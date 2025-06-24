@@ -82,7 +82,7 @@ public class ShoppingCartController
     }
 
     @DeleteMapping
-    public boolean deleteCart(Principal principal)
+    public ShoppingCart deleteCart(Principal principal)
     {
         try
         {

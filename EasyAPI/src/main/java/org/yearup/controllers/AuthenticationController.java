@@ -91,6 +91,7 @@ public class AuthenticationController {
         }
         catch (Exception e)
         {
+            System.out.println(e.toString());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }

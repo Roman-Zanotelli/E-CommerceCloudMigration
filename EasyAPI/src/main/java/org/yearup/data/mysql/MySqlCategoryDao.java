@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import org.yearup.data.CategoryDao;
 import org.yearup.data.exception.DeleteException;
 import org.yearup.data.exception.InsertException;
+import org.yearup.data.exception.NotFoundException;
 import org.yearup.data.exception.UpdateException;
 import org.yearup.models.Category;
 
@@ -56,7 +57,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
     }
 
     @Override
-    public Category getById(int categoryId)
+    public Category getById(int categoryId) throws NotFoundException
     {
         //Query String
         String sql = "SELECT * FROM categories WHERE category_id = ?";
@@ -73,10 +74,11 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
             //Execute
             ResultSet row = statement.executeQuery();
 
-            //Return Result or Null
-            return row.next() ? mapRow(row) : null;
-        }
-        catch (SQLException e)
+            //Throw Exception If Not Found
+            if(!row.next()) throw new NotFoundException("Could Not Retrieve Category With ID: " + categoryId);
+            //Return Otherwise
+            return mapRow(row);
+        } catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
