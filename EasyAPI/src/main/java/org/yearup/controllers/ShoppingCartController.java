@@ -58,7 +58,7 @@ public class ShoppingCartController
         {
             String userName = principal.getName();
             User user = userDao.getByUserName(userName);
-            return shoppingCartDao.addCart(user.getId(), id);
+            return shoppingCartDao.createCart(user.getId(), id);
         }
         catch(Exception e)
         {

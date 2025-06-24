@@ -2,8 +2,12 @@ package org.yearup.data.mysql;
 
 import org.springframework.stereotype.Component;
 import org.yearup.data.CategoryDao;
+import org.yearup.data.exception.DeleteException;
+import org.yearup.data.exception.InsertException;
+import org.yearup.data.exception.UpdateException;
 import org.yearup.models.Category;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,107 +19,138 @@ import java.util.List;
 public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
 {
 
+    public MySqlCategoryDao(DataSource dataSource) {
+        super(dataSource);
+    }
+
     @Override
     public List<Category> getAllCategories()
     {
+        //List to hold categories
         List<Category> categories = new ArrayList<>();
+
+        //Query String
         String sql = "SELECT * FROM categories;";
+
+        //Try Connection
         try (Connection connection = getConnection())
         {
+            //Prepare Statement
             PreparedStatement statement = connection.prepareStatement(sql);
+
+            //Execute
             ResultSet row = statement.executeQuery();
-            while (row.next())
-            {
-                categories.add(mapRow(row));
-            }
+
+            //Map and Add Each row into categories
+            while (row.next()) categories.add(mapRow(row));
+
+            //return list
+            return categories;
         }
         catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
 
-        return categories;
+
     }
 
     @Override
     public Category getById(int categoryId)
     {
+        //Query String
         String sql = "SELECT * FROM categories WHERE category_id = ?";
-        try (Connection connection = getConnection())
-        {
+
+        //Try Connection
+        try (Connection connection = getConnection()) {
+
+            //Prepare Statement
             PreparedStatement statement = connection.prepareStatement(sql);
+
+            //Fill Values
             statement.setInt(1, categoryId);
 
+            //Execute
             ResultSet row = statement.executeQuery();
 
-            if (row.next())
-            {
-                return mapRow(row);
-            }
+            //Return Result or Null
+            return row.next() ? mapRow(row) : null;
         }
         catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override
     public Category create(Category category)
     {
 
-        String sql = "INSERT INTO categories(category_id, name, description) " +
-                " VALUES (?, ?, ?);";
+        //Query String
+        String sqlQuery = "INSERT INTO categories(category_id, name, description) VALUES (?, ?, ?);";
 
+        //Try Connection with resources
         try (Connection connection = getConnection())
         {
-            PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, category.getCategoryId());
-            statement.setString(2, category.getName());
-            statement.setString(3, category.getDescription());
+            //Disable Auto-Commit for Rollbacks
+            connection.setAutoCommit(false);
+            try {
 
-            int rowsAffected = statement.executeUpdate();
+                //Prepare Statement
+                PreparedStatement statement = connection.prepareStatement(sqlQuery, PreparedStatement.RETURN_GENERATED_KEYS);
 
-            if (rowsAffected > 0) {
+                //Fill Values
+                statement.setInt(1, category.getCategoryId());
+                statement.setString(2, category.getName());
+                statement.setString(3, category.getDescription());
+
+
+                //Throw if nothing changed
+                if (statement.executeUpdate() == 0) throw new InsertException(category, "No Rows Changed While Creating Category");
+
                 // Retrieve the generated keys
                 ResultSet generatedKeys = statement.getGeneratedKeys();
 
-                if (generatedKeys.next()) {
-                    // Retrieve the auto-incremented ID
-                    int orderId = generatedKeys.getInt(1);
+                //Throw if there is no key
+                if (!generatedKeys.next()) throw new InsertException(category, "No Keys Generated While Creating Category");
 
-                    // get the newly inserted category
-                    return getById(orderId);
-                }
+                //Commit actions
+                connection.commit();
+
+                // get the newly inserted category
+                return getById(generatedKeys.getInt(1));
+
+            } catch (InsertException e){
+                //Rollback actions
+                connection.rollback();
+                throw e;
             }
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override
     public void update(int categoryId, Category category)
     {
-        String sql = "UPDATE categories" +
-                " SET category_id = ? " +
-                "   , name = ? " +
-                "   , description = ? " +
-                " WHERE category_id = ?;";
+        //Query String
+        String sql = "UPDATE categories SET category_id = ? , name = ? , description = ? WHERE category_id = ?;";
 
+        //Try connection with resources
         try (Connection connection = getConnection())
         {
+            //Prepare statement
             PreparedStatement statement = connection.prepareStatement(sql);
+
+            //Fill values
             statement.setInt(1, category.getCategoryId());
             statement.setString(2, category.getName());
             statement.setString(3, category.getDescription());
             statement.setInt(4, categoryId);
-            statement.executeUpdate();
-        }
-        catch (SQLException e)
-        {
+
+            //Throw if nothing changes
+            if(statement.executeUpdate() == 0) throw new UpdateException(categoryId, category, "No Rows Changed While Updating Category");
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -123,17 +158,21 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
     @Override
     public void delete(int categoryId)
     {
-        String sql = "DELETE FROM categories " +
-                " WHERE category_id = ?;";
+        //Query String
+        String sql = "DELETE FROM categories WHERE category_id = ?;";
 
+        //Try connection with resources
         try (Connection connection = getConnection())
         {
+            //Prepare statement
             PreparedStatement statement = connection.prepareStatement(sql);
+
+            //Fill Values
             statement.setInt(1, categoryId);
-            statement.executeUpdate();
-        }
-        catch (SQLException e)
-        {
+
+            //Throw If Nothing Changed
+            if(statement.executeUpdate() == 0) throw new DeleteException(categoryId, "No Rows Changed While Deleting Category");
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -144,14 +183,12 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
         String name = row.getString("name");
         String description = row.getString("description");
 
-        Category category = new Category()
+        return new Category()
         {{
             setCategoryId(categoryId);
             setName(name);
             setDescription(description);
         }};
-
-        return category;
     }
 
 }

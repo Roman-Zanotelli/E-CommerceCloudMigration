@@ -2,7 +2,9 @@ package org.yearup.models;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ShoppingCart
 {
@@ -43,4 +45,7 @@ public class ShoppingCart
         return total;
     }
 
+    public List<OrderLineItem> convertLineItems(int orderId) {
+        return items.values().stream().map(cartItem -> cartItem.convertToLineItem(orderId)).toList();
+    }
 }

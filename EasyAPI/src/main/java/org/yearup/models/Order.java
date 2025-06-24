@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
     private int orderId;
@@ -74,4 +75,19 @@ public class Order {
         return cart.getTotal();
     }
 
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", userData=" + userData +
+                ", date=" + date +
+                ", cart=" + cart +
+                ", lineItems=" + lineItems +
+                '}';
+    }
+
+    public List<OrderLineItem> convertLineItems() {
+        return cart.convertLineItems(orderId);
+    }
 }

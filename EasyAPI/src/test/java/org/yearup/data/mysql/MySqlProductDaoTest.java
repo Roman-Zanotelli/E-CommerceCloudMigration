@@ -1,15 +1,15 @@
 package org.yearup.data.mysql;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestPropertySource;
 import org.yearup.models.Product;
 
 import java.math.BigDecimal;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@TestPropertySource("classpath:application.properties")
 class MySqlProductDaoTest extends BaseDaoTestClass
 {
     private MySqlProductDao dao;
@@ -17,7 +17,7 @@ class MySqlProductDaoTest extends BaseDaoTestClass
     @BeforeEach
     public void setup()
     {
-        dao = new MySqlProductDao();
+        dao = new MySqlProductDao(dataSource);
     }
 
     @Test

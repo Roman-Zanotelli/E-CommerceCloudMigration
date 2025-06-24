@@ -1,9 +1,6 @@
 package org.yearup.models;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class OrderLineItem{
 
     int orderLineItemId, orderId , productId;
@@ -64,5 +61,17 @@ public class OrderLineItem{
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderLineItem{" +
+                "orderLineItemId=" + orderLineItemId +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
+                ", salesPrice=" + salesPrice +
+                ", discount=" + discount +
+                ", quantity=" + quantity +
+                '}';
     }
 }
