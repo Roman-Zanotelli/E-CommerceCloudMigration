@@ -76,7 +76,7 @@ public class AuthenticationController {
             boolean exists = userDao.exists(newUser.getUsername());
             if (exists)
             {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "User Already Exists.");
             }
 
             // create user
@@ -88,10 +88,11 @@ public class AuthenticationController {
             profileDao.create(profile);
 
             return new ResponseEntity<>(user, HttpStatus.CREATED);
+        }catch (ResponseStatusException e){
+            throw e;
         }
         catch (Exception e)
         {
-            System.out.println(e.toString());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
