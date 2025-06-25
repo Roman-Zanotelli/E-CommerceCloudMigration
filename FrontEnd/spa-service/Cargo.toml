@@ -1,0 +1,10 @@
+[package]
+name = "spa-service"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.7.5"
+tokio = { version = "1.38.0", features = ["full"] }
+hyper = { version = "1.4.0", features = ["full"] }
+tower-http = { version = "0.5.2", features = ["compression-gzip", "set-header", "fs"] }

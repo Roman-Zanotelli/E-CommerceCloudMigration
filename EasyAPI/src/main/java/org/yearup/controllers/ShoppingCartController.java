@@ -51,7 +51,7 @@ public class ShoppingCartController
         }
     }
 
-    @PostMapping("/products/{id}")
+    @PostMapping("products/{id}")
     public ShoppingCart addCart(@PathVariable int id, Principal principal)
     {
         try
@@ -66,7 +66,7 @@ public class ShoppingCartController
         }
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping("products/{id}")
     public ShoppingCart updateCart(@PathVariable int id, Principal principal, @RequestBody ShoppingCartItem cartItem)
     {
         try

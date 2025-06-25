@@ -1,0 +1,1 @@
+/home/roman/pluralsight/LearnToCode_Capstones/E-CommerceCloudMigration/FrontEnd/spa-service/target/debug/spa-service: /home/roman/pluralsight/LearnToCode_Capstones/E-CommerceCloudMigration/FrontEnd/spa-service/src/main.rs
