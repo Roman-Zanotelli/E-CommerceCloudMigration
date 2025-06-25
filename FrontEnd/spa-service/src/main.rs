@@ -52,7 +52,7 @@ fn get_port() -> u16{
 }
 //Serve the router with the port
 async fn serve(app: Router, port: u16){
-    let addr = SocketAddr::from(([127, 0, 0, 1], port));
+    let addr = SocketAddr::from(([0, 0, 0, 0], port));
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, app)
         .await
