@@ -61,7 +61,7 @@ public class AuthenticationController {
             httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
             return new ResponseEntity<>(new LoginResponseDto(jwt, user), httpHeaders, HttpStatus.OK);
         }
-        catch(Exception ex)
+        catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
