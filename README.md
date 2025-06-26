@@ -78,7 +78,7 @@ docker build -t easy-spa-service:latest ./FrontEnd
 To deploy changes or upgrade an existing release without uninstalling, use:
 
 ```bash
-helm upgrade --install easy-deployment ./Helm/easy-core
+helm upgrade --install easy-deployment ./easy-helm-deployment
 ```
 
 ### 4. Check All Pods
@@ -92,8 +92,9 @@ You should see something like:
 NAME                                READY   STATUS    RESTARTS   AGE
 easy-api-service-...              1/1     Running   0          54s
 easy-spa-service-...              1/1     Running   0          54s
-envoy-564f4cf4fb-...              1/1     Running   0          54s
-mysql-775c8c9496-...              1/1     Running   0          54s
+envoy-...                         1/1     Running   0          54s
+mysql-...                         1/1     Running   0          54s
+prometheus-...                    1/1     Running   0          54s
 ```
 
 Sometimes mysql takes longer to lauch but something is wrong if its frozen for more than a minute or so
@@ -114,7 +115,6 @@ If all steps completed without errors, you should be able to open your browser a
 When you're done with the demo, you can delete your Minikube cluster and purge all related data.
 
 ## Delete Minikube Cluster
-
 ```bash
 minikube delete
 ```

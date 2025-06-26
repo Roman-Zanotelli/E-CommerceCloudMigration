@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: grafana/grafana
+  tag: 9.5.2
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+grafana:
+  rootUrl: "https://localhost/grafana"
+  serveFromSubPath: true
+
+adminUser: admin
+adminPassword: admin
+
+persistence:
+  enabled: false

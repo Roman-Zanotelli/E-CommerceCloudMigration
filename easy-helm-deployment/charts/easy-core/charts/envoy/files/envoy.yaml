@@ -41,9 +41,26 @@ static_resources:
                 route: { cluster: api-service }
               - match: { prefix: "/cart" }
                 route: { cluster: api-service }
+              - match: { prefix: "/grafana"}
+                route: 
+                  cluster: grafana
+                  prefix_rewrite: ""
               - match: { prefix: "/" }
                 route: { cluster: spa-service }
+          upgrade_configs:
+            - upgrade_type: websocket
           http_filters:
+          - name: envoy.filters.http.lua
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+              inline_code: |
+                function envoy_on_request(request_handle)
+                  request_handle:headers():replace("X-Forwarded-Proto", "https")
+                  local host = request_handle:headers():get(":authority")
+                  if host ~= nil then
+                    request_handle:headers():replace("X-Forwarded-Host", host)
+                  end
+                end
           - name: envoy.filters.http.router
             typed_config:
               "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
@@ -73,4 +90,17 @@ static_resources:
             address:
               socket_address:
                 address: easy-spa-service.default.svc.cluster.local
+                port_value: 80
+  - name: grafana
+    connect_timeout: 1s
+    type: strict_dns
+    lb_policy: round_robin
+    load_assignment:
+      cluster_name: grafana
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: grafana.default.svc.cluster.local
                 port_value: 80
