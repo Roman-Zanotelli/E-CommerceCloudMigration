@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-script
+data:
+  init.sql: |-
+{{ (.Files.Get "files/create_database.sql") | indent 4 }}

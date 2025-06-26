@@ -48,7 +48,7 @@ fn get_port() -> u16{
     env::var("SERVER_PORT")
         .ok()
         .and_then(|port| port.parse().ok())
-        .unwrap_or(8888)
+        .unwrap_or(80)
 }
 //Serve the router with the port
 async fn serve(app: Router, port: u16){

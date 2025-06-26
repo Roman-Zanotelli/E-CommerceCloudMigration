@@ -1,12 +1,11 @@
 image:
-  repository: easy-spa-service
+  repository: mysql
   tag: latest
   pullPolicy: IfNotPresent
 
-replicaCount: 1
+mysql:
+  rootPassword: rootpassword
 
 service:
+  port: 3306
   type: ClusterIP
-  port: 80
-
-containerPort: 80
