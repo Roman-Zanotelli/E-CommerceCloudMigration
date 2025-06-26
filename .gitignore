@@ -25,3 +25,15 @@ replay_pid*
 
 
 FrontEnd/spa-service/target
+
+#TLS/SSL and other private keys
+*.key
+*.crt
+*.pem
+*.cert
+
+#Helm
+certs/
+secrets/
+target/
+.idea/

@@ -1,12 +1,22 @@
 static_resources:
   listeners:
-  - name: listener_0
+  - name: listener_https
     address:
       socket_address:
         address: 0.0.0.0
-        port_value: 80
+        port_value: 443
     filter_chains:
-    - filters:
+    - transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+          common_tls_context:
+            tls_certificates:
+            - certificate_chain:
+                filename: "/etc/envoy/tls/tls.crt"
+              private_key:
+                filename: "/etc/envoy/tls/tls.key"
+      filters:
       - name: envoy.filters.network.http_connection_manager
         typed_config:
           "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
@@ -17,22 +27,22 @@ static_resources:
             - name: backend
               domains: ["*"]
               routes:
-              - match: {prefix: "/login"}
-                route: {cluster: api-service}
-              - match: {prefix: "/register"}
-                route: {cluster: api-service}
-              - match: {prefix: "/categories"}
-                route: {cluster: api-service}
-              - match: {prefix: "/orders"}
-                route: {cluster: api-service}
-              - match: {prefix: "/products"}
-                route: {cluster: api-service}
-              - match: {prefix: "/profile"}
-                route: {cluster: api-service}
-              - match: {prefix: "/cart"}
-                route: {cluster: api-service}
-              - match: {prefix: "/"}
-                route: {cluster: spa-service}
+              - match: { prefix: "/login" }
+                route: { cluster: api-service }
+              - match: { prefix: "/register" }
+                route: { cluster: api-service }
+              - match: { prefix: "/categories" }
+                route: { cluster: api-service }
+              - match: { prefix: "/orders" }
+                route: { cluster: api-service }
+              - match: { prefix: "/products" }
+                route: { cluster: api-service }
+              - match: { prefix: "/profile" }
+                route: { cluster: api-service }
+              - match: { prefix: "/cart" }
+                route: { cluster: api-service }
+              - match: { prefix: "/" }
+                route: { cluster: spa-service }
           http_filters:
           - name: envoy.filters.http.router
             typed_config:

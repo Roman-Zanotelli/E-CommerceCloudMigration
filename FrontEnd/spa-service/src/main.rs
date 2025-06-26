@@ -27,14 +27,16 @@ fn static_router() -> Router{
     //Sets Content Security Policies reqired to run web app (Can Replace with Env var)
     let csp = HeaderValue::from_str(
         &env::var("CSP").ok()
-        .unwrap_or("default-src 'self'; \
-     connect-src 'self' http://localhost:8080; \
-     script-src 'self'; \
-     script-src-attr 'self' 'unsafe-inline'; \
-     style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; \
-     style-src-elem 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; \
-     font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; \
-     img-src 'self' data:;".to_string())
+        .unwrap_or(
+            "default-src 'self'; \
+            connect-src 'self' https://localhost; \
+            script-src 'self'; \
+            script-src-attr 'self' 'unsafe-inline'; \
+            style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; \
+            style-src-elem 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.jsdelivr.net 'unsafe-inline'; \
+            font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; \
+            img-src 'self' data:;".to_string()
+        )
     ,
     ).unwrap();
     //Create the actual router with a compression layer and above CSP

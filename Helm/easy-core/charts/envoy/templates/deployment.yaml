@@ -24,7 +24,13 @@ spec:
           - name: envoy-config
             mountPath: /etc/envoy
             readOnly: true
+          - name: tls-secret
+            mountPath: /etc/envoy/tls
+            readOnly: true
       volumes:
         - name: envoy-config
           configMap:
             name: envoy-config
+        - name: tls-secret
+          secret:
+            secretName: envoy-tls

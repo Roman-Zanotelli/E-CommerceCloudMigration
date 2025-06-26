@@ -1,5 +1,16 @@
-postgresql:
-  username: admin
-  password: secretpassword
-  database: mydb
-  port: 5432
+vault:
+  server:
+    extraArgs:
+      - "-dev"
+      - "-dev-root-token-id="
+    standalone:
+      enabled: true
+    dataStorage:
+      enabled: false
+    ha:
+      enabled: false
+    ingress:
+      enabled: false
+    service:
+      type: ClusterIP
+      port: 8200
