@@ -7,6 +7,7 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 - Custom Static Web Service
 - MySQL
 - Spring REST API
+![Diagram](SystemGraph.excalidraw.svg)
 # 🛠️ Prerequisites: Install Required Tools
 
 Before getting started, make sure you have the following tools installed on your Linux system:
@@ -27,7 +28,8 @@ This is for demo purposes only and should not be replicated in production, but a
 ### 1. CD Into Certs
 local to the Project Dir
 ```bash
-cd ./Helm/easy-core/charts/envoy/certs
+mkdir ./easy-helm-deployment/charts/easy-core/charts/envoy/certs
+cd ./easy-helm-deployment/charts/easy-core/charts/envoy/certs
 ```
 
 ### 2. Generate a self-signed TLS certificate and key using `openssl`:
@@ -94,6 +96,7 @@ easy-api-service-...              1/1     Running   0          54s
 easy-spa-service-...              1/1     Running   0          54s
 envoy-...                         1/1     Running   0          54s
 mysql-...                         1/1     Running   0          54s
+grafana-...                       1/1     Running   0          26s
 prometheus-...                    1/1     Running   0          54s
 ```
 
@@ -130,5 +133,3 @@ Goto Datasources
 Add Prometheus
 Url: Http://prometheus:9090
 Save and test
-## Import Java dashbaord
-/E-CommerceCloudMigration/API Metrics Dashboard.json
