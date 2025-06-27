@@ -10,6 +10,7 @@ import org.yearup.data.ProductDao;
 import org.yearup.data.exception.NotFoundException;
 import org.yearup.models.Category;
 import org.yearup.models.Product;
+import org.yearup.observe.Metrics;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -23,6 +24,8 @@ public class CategoriesController
     private CategoryDao categoryDao;
     @Autowired
     private ProductDao productDao;
+    @Autowired
+    private Metrics metrics;
 
 
     @GetMapping("")
@@ -30,6 +33,7 @@ public class CategoriesController
     public List<Category> getAll()
     {
         try{
+            metrics.increment("api_get_categories");
             return categoryDao.getAllCategories();
         }catch(Exception e)
         {
@@ -42,6 +46,7 @@ public class CategoriesController
     public Category getById(@PathVariable int id)
     {
         try{
+            metrics.increment("api_get_byId_categories");
             return categoryDao.getById(id);
         }catch (ResponseStatusException e){
             throw e;
@@ -56,6 +61,7 @@ public class CategoriesController
     @PreAuthorize("permitAll()")
     public List<Product> getProductsById(@PathVariable int categoryId) {
         try {
+            metrics.increment("api_get_products_byId_categories");
             return productDao.listByCategoryId(categoryId);
         } catch(Exception e)
         {
@@ -68,6 +74,7 @@ public class CategoriesController
     @ResponseStatus(HttpStatus.CREATED)
     public Category addCategory(@RequestBody Category category) {
         try {
+            metrics.increment("api_add_categories");
             return categoryDao.create(category);
         }catch(Exception e)
         {
@@ -79,6 +86,7 @@ public class CategoriesController
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateCategory(@PathVariable int id, @RequestBody Category category) {
         try {
+            metrics.increment("api_update_categories");
             categoryDao.update(id, category);
         }catch(Exception e)
         {
@@ -92,6 +100,7 @@ public class CategoriesController
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCategory(@PathVariable int id) {
         try {
+            metrics.increment("api_delete_categories");
             categoryDao.delete(id);
         }catch(Exception e)
         {

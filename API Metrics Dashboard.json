@@ -1,0 +1,564 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "interval": "1",
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "expr": "rate(api_login_total[1m])",
+          "legendFormat": "api_login",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(api_register_total[1m])",
+          "legendFormat": "api_register",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(api_delete_categories_total[1m])",
+          "legendFormat": "api_delete_categories",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(api_update_categories_total[1m])",
+          "legendFormat": "api_update_categories",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(api_add_categories_total[1m])",
+          "legendFormat": "api_add_categories",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(api_get_products_byId_categories_total[1m])",
+          "legendFormat": "api_get_products_byId_categories",
+          "refId": "F"
+        },
+        {
+          "expr": "rate(api_get_byId_categories_total[1m])",
+          "legendFormat": "api_get_byId_categories",
+          "refId": "G"
+        },
+        {
+          "expr": "rate(api_get_categories_total[1m])",
+          "legendFormat": "api_get_categories",
+          "refId": "H"
+        },
+        {
+          "expr": "rate(api_checkout_total[1m])",
+          "legendFormat": "api_checkout",
+          "refId": "I"
+        },
+        {
+          "expr": "rate(api_delete_products_total[1m])",
+          "legendFormat": "api_delete_products",
+          "refId": "J"
+        },
+        {
+          "expr": "rate(api_update_products_total[1m])",
+          "legendFormat": "api_update_products",
+          "refId": "K"
+        },
+        {
+          "expr": "rate(api_add_products_total[1m])",
+          "legendFormat": "api_add_products",
+          "refId": "L"
+        },
+        {
+          "expr": "rate(api_get_byId_products_total[1m])",
+          "legendFormat": "api_get_byId_products",
+          "refId": "M"
+        },
+        {
+          "expr": "rate(api_search_products_total[1m])",
+          "legendFormat": "api_search_products",
+          "refId": "N"
+        },
+        {
+          "expr": "rate(api_get_profile_total[1m])",
+          "legendFormat": "api_get_profile",
+          "refId": "O"
+        },
+        {
+          "expr": "rate(api_update_profile_total[1m])",
+          "legendFormat": "api_update_profile",
+          "refId": "P"
+        },
+        {
+          "expr": "rate(api_get_cart_total[1m])",
+          "legendFormat": "api_get_cart",
+          "refId": "Q"
+        },
+        {
+          "expr": "rate(api_add_cart_total[1m])",
+          "legendFormat": "api_add_cart",
+          "refId": "R"
+        },
+        {
+          "expr": "rate(api_update_cart_total[1m])",
+          "legendFormat": "api_update_cart",
+          "refId": "S"
+        }
+      ],
+      "timeFrom": "15m",
+      "title": "API Call Rates",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 6,
+      "interval": "1",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "expr": "rate(api_login_total[1m])",
+          "legendFormat": "api_login",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(api_register_total[1m])",
+          "legendFormat": "api_register",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(api_delete_categories_total[1m])",
+          "legendFormat": "api_delete_categories",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(api_update_categories_total[1m])",
+          "legendFormat": "api_update_categories",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(api_add_categories_total[1m])",
+          "legendFormat": "api_add_categories",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(api_get_products_byId_categories_total[1m])",
+          "legendFormat": "api_get_products_byId_categories",
+          "refId": "F"
+        },
+        {
+          "expr": "rate(api_get_byId_categories_total[1m])",
+          "legendFormat": "api_get_byId_categories",
+          "refId": "G"
+        },
+        {
+          "expr": "rate(api_get_categories_total[1m])",
+          "legendFormat": "api_get_categories",
+          "refId": "H"
+        },
+        {
+          "expr": "rate(api_checkout_total[1m])",
+          "legendFormat": "api_checkout",
+          "refId": "I"
+        },
+        {
+          "expr": "rate(api_delete_products_total[1m])",
+          "legendFormat": "api_delete_products",
+          "refId": "J"
+        },
+        {
+          "expr": "rate(api_update_products_total[1m])",
+          "legendFormat": "api_update_products",
+          "refId": "K"
+        },
+        {
+          "expr": "rate(api_add_products_total[1m])",
+          "legendFormat": "api_add_products",
+          "refId": "L"
+        },
+        {
+          "expr": "rate(api_get_byId_products_total[1m])",
+          "legendFormat": "api_get_byId_products",
+          "refId": "M"
+        },
+        {
+          "expr": "rate(api_search_products_total[1m])",
+          "legendFormat": "api_search_products",
+          "refId": "N"
+        },
+        {
+          "expr": "rate(api_get_profile_total[1m])",
+          "legendFormat": "api_get_profile",
+          "refId": "O"
+        },
+        {
+          "expr": "rate(api_update_profile_total[1m])",
+          "legendFormat": "api_update_profile",
+          "refId": "P"
+        },
+        {
+          "expr": "rate(api_get_cart_total[1m])",
+          "legendFormat": "api_get_cart",
+          "refId": "Q"
+        },
+        {
+          "expr": "rate(api_add_cart_total[1m])",
+          "legendFormat": "api_add_cart",
+          "refId": "R"
+        },
+        {
+          "expr": "rate(api_update_cart_total[1m])",
+          "legendFormat": "api_update_cart",
+          "refId": "S"
+        }
+      ],
+      "timeFrom": "15m",
+      "title": "API Call Rates",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 4,
+      "interval": "1s",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+          },
+          "editorMode": "builder",
+          "expr": "system_load_average_1m",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "15m",
+      "title": "System Load Average",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 40
+      },
+      "id": 5,
+      "interval": "1s",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bce0224c-540a-421f-bde6-1dd1624df978"
+          },
+          "editorMode": "builder",
+          "expr": "system_cpu_usage",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "15m",
+      "title": "System Load Average",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2025-06-27T02:48:26.556Z",
+    "to": "2025-06-27T03:08:26.556Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "API Metrics Dashboard",
+  "uid": "api-metrics-dashboard",
+  "version": 6,
+  "weekStart": ""
+}

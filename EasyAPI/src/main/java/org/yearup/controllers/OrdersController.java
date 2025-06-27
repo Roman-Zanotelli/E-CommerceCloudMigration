@@ -15,6 +15,7 @@ import org.yearup.data.UserDao;
 import org.yearup.models.Order;
 import org.yearup.models.Profile;
 import org.yearup.models.User;
+import org.yearup.observe.Metrics;
 
 import java.security.Principal;
 
@@ -31,10 +32,13 @@ public class OrdersController {
     private ProfileDao profileDao;
     @Autowired
     private ShoppingCartDao cartDao;
+    @Autowired
+    private Metrics metrics;
 
     @PostMapping
     public Order checkOut(Principal principal) {
         try {
+            metrics.increment("api_checkout");
             int userId = userDao.getIdByUsername(principal.getName());
             Order order = orderDao.checkOut(profileDao.getByUserId(userId), cartDao.getByUserId(userId));
             cartDao.deleteCart(userId);

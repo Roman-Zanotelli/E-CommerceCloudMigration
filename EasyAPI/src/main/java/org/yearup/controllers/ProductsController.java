@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Product;
 import org.yearup.data.ProductDao;
+import org.yearup.observe.Metrics;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,6 +20,8 @@ public class ProductsController
 {
     @Autowired
     private ProductDao productDao;
+    @Autowired
+    private Metrics metrics;
 
     @GetMapping
     @PreAuthorize("permitAll()")
@@ -30,6 +33,7 @@ public class ProductsController
     {
         try
         {
+            metrics.increment("api_search_products");
             return productDao.search(categoryId, minPrice, maxPrice, color);
         }
         catch(Exception ex)
@@ -44,6 +48,7 @@ public class ProductsController
     {
         try
         {
+            metrics.increment("api_get_byId_products");
             var product = productDao.getById(id);
 
             if(product == null)
@@ -63,6 +68,7 @@ public class ProductsController
     {
         try
         {
+            metrics.increment("api_add_products");
             return productDao.create(product);
         }
         catch(Exception ex)
@@ -77,6 +83,7 @@ public class ProductsController
     {
         try
         {
+            metrics.increment("api_update_products");
             productDao.update(id, product);
         }
         catch(Exception ex)
@@ -91,6 +98,7 @@ public class ProductsController
     {
         try
         {
+            metrics.increment("api_delete_products");
             var product = productDao.getById(id);
 
             if(product == null)

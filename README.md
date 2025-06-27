@@ -105,6 +105,7 @@ Forward Envoy’s HTTPS port to `localhost:443` so you can access the app in you
 
 ```bash
 sudo -E kubectl port-forward svc/envoy 443:443
+sudo -E kubectl port-forward svc/envoy 8443:443
 ```
 ### 🎉 Success!
 
@@ -130,4 +131,4 @@ Add Prometheus
 Url: Http://prometheus:9090
 Save and test
 ## Import Java dashbaord
-Dashboard ID: 4701
+/E-CommerceCloudMigration/API Metrics Dashboard.json

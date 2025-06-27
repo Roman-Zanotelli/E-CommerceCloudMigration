@@ -21,6 +21,7 @@ import org.yearup.models.authentication.LoginDto;
 import org.yearup.models.authentication.LoginResponseDto;
 import org.yearup.models.authentication.RegisterUserDto;
 import org.yearup.models.User;
+import org.yearup.observe.Metrics;
 import org.yearup.security.jwt.JWTFilter;
 import org.yearup.security.jwt.TokenProvider;
 
@@ -33,6 +34,8 @@ public class AuthenticationController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private UserDao userDao;
     private ProfileDao profileDao;
+    @Autowired
+    private Metrics metrics;
 
     @Autowired
     public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao, ProfileDao profileDao) {
@@ -53,6 +56,7 @@ public class AuthenticationController {
 
         try
         {
+            metrics.increment("api_login");
             User user = userDao.getByUserName(loginDto.getUsername());
 
             if (user == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -73,6 +77,7 @@ public class AuthenticationController {
 
         try
         {
+            metrics.increment("api_register");
             boolean exists = userDao.exists(newUser.getUsername());
             if (exists)
             {

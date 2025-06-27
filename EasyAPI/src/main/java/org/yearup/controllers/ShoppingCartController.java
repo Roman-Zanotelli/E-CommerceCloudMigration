@@ -11,6 +11,7 @@ import org.yearup.data.UserDao;
 import org.yearup.models.ShoppingCart;
 import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
+import org.yearup.observe.Metrics;
 
 import java.security.Principal;
 
@@ -28,6 +29,8 @@ public class ShoppingCartController
     private UserDao userDao;
     @Autowired
     private ProductDao productDao;
+    @Autowired
+    private Metrics metrics;
 
 
 
@@ -36,6 +39,7 @@ public class ShoppingCartController
     {
         try
         {
+            metrics.increment("api_get_cart");
             // get the currently logged in username
             String userName = principal.getName();
 
@@ -56,6 +60,7 @@ public class ShoppingCartController
     {
         try
         {
+            metrics.increment("api_add_cart");
             String userName = principal.getName();
             User user = userDao.getByUserName(userName);
             return shoppingCartDao.createCart(user.getId(), id);
@@ -71,6 +76,7 @@ public class ShoppingCartController
     {
         try
         {
+            metrics.increment("api_update_cart");
             String userName = principal.getName();
             User user = userDao.getByUserName(userName);
             return shoppingCartDao.updateCart(user.getId(), id, cartItem.getQuantity());
@@ -86,6 +92,7 @@ public class ShoppingCartController
     {
         try
         {
+            metrics.increment("api_delete_cart");
             String userName = principal.getName();
             User user = userDao.getByUserName(userName);
             return shoppingCartDao.deleteCart(user.getId());
