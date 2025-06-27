@@ -122,3 +122,12 @@ minikube delete
 ```bash
 minikube delete --all --purge
 ```
+
+# Grafana
+## Configure Prometheus
+Goto Datasources
+Add Prometheus
+Url: Http://prometheus:9090
+Save and test
+## Import Java dashbaord
+Dashboard ID: 4701
