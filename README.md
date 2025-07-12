@@ -30,7 +30,7 @@ Before getting started, make sure you have the following tools installed on your
 - **[Helm](https://helm.sh/)**
 - **[Minikube](https://minikube.sigs.k8s.io/docs/)**
 - **[Envoy Proxy](https://www.envoyproxy.io/)**
-- - **[Grafana Dashboard (Visualization)](https://grafana.com/grafana/)**
+- **[Grafana Dashboard (Visualization)](https://grafana.com/grafana/)**
 - **[Prometheus (Metrics)](https://prometheus.io/)**
   
 Follow the official installation guides linked above for the most up-to-date instructions.
