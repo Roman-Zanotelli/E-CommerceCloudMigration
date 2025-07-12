@@ -12,7 +12,7 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 ![Diagram](SystemGraph.excalidraw.svg)
 
 ### Final Note:
-This entire project was created start-to-finish in 5 days for a finals project, the requirements of the final were to implement bug fixes in the java code but I took the initiative to migrate it to a cloud deployment in minikube within those few days.
+This entire project was created start-to-finish in 5 days with no prior knowledge/planning, the requirements of the final were to implement bug fixes in the java code but I decided to migrate it to a cloud deployment in minikube within those few days (as the bug fixes and new features asked only took one).
 
 There are many improvements I plan to make in my next project/demo, but as for this one it is finished with no plans to maintain or continue development, and now serves soley as a memory/milestone in my learning path
 
