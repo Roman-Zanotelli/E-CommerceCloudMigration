@@ -7,7 +7,15 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 - Custom Static Web Service
 - MySQL
 - Spring REST API
+- Grafana Dashboard
+- Prometheus
 ![Diagram](SystemGraph.excalidraw.svg)
+
+### Final Note:
+This entire project was created start-to-finish in 5 days for a finals project, the requirements of the final were to implement bug fixes in the java code but I took the initiative to migrate it to a cloud deployment in minikube within those few days.
+
+There are many improvements I plan to make in my next project/demo, but as for this one it is finished with no plans to maintain or continue development, and now serves soley as a memory/milestone in my learning path
+
 # 🛠️ Prerequisites: Install Required Tools
 
 Before getting started, make sure you have the following tools installed on your Linux system:
@@ -16,7 +24,14 @@ Before getting started, make sure you have the following tools installed on your
 - **[Helm](https://helm.sh/docs/intro/install/)**
 - **[Minikube](https://minikube.sigs.k8s.io/docs/start/)**
 - **[kubectl (Kubernetes CLI)](https://kubernetes.io/docs/tasks/tools/#kubectl)**
-- **[Docker](https://docs.docker.com/engine/install/)**
+- 
+# Other Solutions Use in Project
+- **[Kubernetes](https://kubernetes.io/)**
+- **[Helm](https://helm.sh/)**
+- **[Minikube](https://minikube.sigs.k8s.io/docs/)**
+- **[Envoy Proxy](https://www.envoyproxy.io/)**
+- - **[Grafana Dashboard (Visualization)](https://grafana.com/grafana/)**
+- **[Prometheus (Metrics)](https://prometheus.io/)**
   
 Follow the official installation guides linked above for the most up-to-date instructions.
 # 🚀  Launch
