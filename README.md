@@ -1,4 +1,4 @@
-# E-CommerceCloudMigration
+# E-CommerceCloudMigration (Archived)
 Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 - Kubernetes (Minikube)
 - Docker
