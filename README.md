@@ -12,7 +12,7 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 ![Diagram](SystemGraph.excalidraw.svg)
 
 ### Final Note:
-This entire project was created start-to-finish in 5 days with no prior knowledge/planning, the requirements of the final were to implement bug fixes in the java code but I decided to migrate it to a cloud deployment in minikube within those few days (as the bug fixes and new features asked only took one).
+This entire project was created start-to-finish in 5 days with no prior knowledge/planning, the requirements of the final were to implement bug fixes in the java code but I decided to migrate it to a cloud deployment in minikube within those few days also.
 
 There are many improvements I plan to make in my next project/demo, but as for this one it is finished with no plans to maintain or continue development, and now serves soley as a memory/milestone in my learning path
 
@@ -24,7 +24,7 @@ Before getting started, make sure you have the following tools installed on your
 - **[Helm](https://helm.sh/docs/intro/install/)**
 - **[Minikube](https://minikube.sigs.k8s.io/docs/start/)**
 - **[kubectl (Kubernetes CLI)](https://kubernetes.io/docs/tasks/tools/#kubectl)**
-- 
+  
 # Other Solutions Use in Project
 - **[Kubernetes](https://kubernetes.io/)**
 - **[Helm](https://helm.sh/)**
@@ -148,3 +148,9 @@ Goto Datasources
 Add Prometheus
 Url: Http://prometheus:9090
 Save and test
+
+# 🤖 AI Assistance Acknowledgment
+
+Parts of this README were created with assistance from [ChatGPT by OpenAI](https://openai.com/chatgpt) to help organize ideas and improve clarity
+
+> ⚖️ **Ethical Use Statement**: I believe in responsible and transparent use of AI tools. While AI helped shape the structure and language of the readme, all architectural decisions, implementation, and final content reflect my own understanding, judgment, and intent.
