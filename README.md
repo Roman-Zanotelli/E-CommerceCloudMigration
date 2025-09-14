@@ -143,7 +143,6 @@ minikube delete --all --purge
 ```
 
 # Grafana
-## Configure Prometheus
 Goto Datasources
 Add Prometheus
 Url: Http://prometheus:9090
