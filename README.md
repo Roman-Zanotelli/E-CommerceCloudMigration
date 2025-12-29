@@ -11,10 +11,16 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 - Prometheus
 ![Diagram](SystemGraph.excalidraw.svg)
 
-### Final Note:
-This entire project was created start-to-finish in 5 days with no prior knowledge/planning, the requirements of the final were to implement bug fixes in the java code but I decided to migrate it to a cloud deployment in minikube within those few days also.
+### Background:
+This entire project was created start-to-finish in 5 days with no prior knowledge/planning as a final project; The requirements of the final were to implement bug fixes in the java code for an existing monolithic site, but I decided to migrate it to a cloud deployment in minikube within those few days using including Helm, Envoy, Prometheus, Grafana, and MySQL.
 
-There are many improvements I plan to make in my next project/demo, but as for this one it is finished with no plans to maintain or continue development, and now serves soley as a memory/milestone in my learning path
+Core features include:
+- Metrics & Visualization infastructure using **Grafana/Prometheus**
+- Custom Static Web Server using **Rust**
+- Proxy Routing/Firewall using **Envoy** converting all external traffic to HTTPs
+- SQL Database using **MySQL**
+
+This is by no means production ready, but rather meant to showcase my ability to rapidly prototype and develop cloud systems on the fly with little to no external guidence.
 
 # 🛠️ Prerequisites: Install Required Tools
 
@@ -76,8 +82,8 @@ Follow these steps to run the demo locally using [Minikube](https://minikube.sig
 ### 1. Start Minikube with Registry Enabled
 
 ```bash
-# start minikube
-minikube start --driver=kvm2 #(KVM Optional I prefer it)
+# start minikube (KVM Optional I prefer it)
+minikube start --driver=kvm2
 # enable minikube registry
 minikube addons enable registry
 ```
