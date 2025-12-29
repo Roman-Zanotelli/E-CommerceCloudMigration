@@ -12,7 +12,7 @@ Demo E-Commerce Site, Added New Features, and Cloud Migration using:
 ![Diagram](SystemGraph.excalidraw.svg)
 
 ### Background:
-This entire project was created start-to-finish in 5 days with no prior knowledge/planning as a final project; The requirements of the final were to implement bug fixes in the java code for an existing monolithic site, but I decided to migrate it to a cloud deployment in minikube within those few days using including Helm, Envoy, Prometheus, Grafana, and MySQL.
+This entire project was created start-to-finish in 5 days with no prior knowledge/planning as a finals project; The requirements of the final were to implement bug fixes in the java code for an existing site, but I decided to extend the project and migrate it to a cloud deployment in minikube using Helm, Envoy, Prometheus, Grafana, and MySQL.
 
 Core features include:
 - Metrics & Visualization infastructure using **Grafana/Prometheus**
